@@ -1,16 +1,12 @@
 package tile;
 
-import jdk.nashorn.internal.parser.JSONParser;
 import main.GamePanel;
-import main.Utility;
+import util.Utility;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.*;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Objects;
 
 public class TileManager {
@@ -32,7 +28,7 @@ public class TileManager {
         LinkedHashMap<String, Boolean> tilesMap = new LinkedHashMap<>();
 
 
-
+        // load these from json into hashmap
         String[][] tiles = {
                 {"earth", "false"},
                 {"grass", "false"},

@@ -1,14 +1,21 @@
-package main;
+package util;
+
+import main.GamePanel;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 public class KeyHandler implements KeyListener {
 
+    GamePanel gp;
     public boolean upPressed, downPressed, leftPressed, rightPressed;
 
     // Debut
-    boolean checkDrawTime = false;
+    public boolean checkDrawTime = false;
+
+    public KeyHandler(GamePanel gp) {
+        this.gp = gp;
+    }
 
     @Override
     public void keyTyped(KeyEvent e) {}
@@ -30,6 +37,13 @@ public class KeyHandler implements KeyListener {
                 break;
             case KeyEvent.VK_D:
                 rightPressed = true;
+                break;
+            case KeyEvent.VK_P:
+                if (gp.gameState == gp.playState) { // if game is not paused, pause the game
+                    gp.gameState = gp.pauseState;
+                } else if (gp.gameState == gp.pauseState) { // if game is paused, unpause the game
+                    gp.gameState = gp.playState;
+                }
                 break;
             case KeyEvent.VK_T:
                 checkDrawTime = !checkDrawTime;

@@ -1,27 +1,25 @@
 package entity;
 
 import main.GamePanel;
-import main.KeyHandler;
-import main.Utility;
+import util.KeyHandler;
 
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Objects;
 
 public class Player extends Entity{
 
-    GamePanel gp;
     KeyHandler keyH;
 
     public final int screenX;
     public final int screenY;
 
-    public int keyCount = 0;
+    // Old for key collector, delete fully once completely phased out
+    //public int keyCount = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
-        this.gp = gp;
+
+        super(gp);
+
         this.keyH = keyH;
 
         screenX = gp.screenWidth / 2 - (gp.tileSize / 2);
@@ -36,43 +34,27 @@ public class Player extends Entity{
         collisionArea.height = 27;
 
         setDefaultValues();
-        getPlayerImage();
+        loadSprites();
     }
 
     public void setDefaultValues() {
-
-        worldX = gp.tileSize * 24;
-        worldY = gp.tileSize * 34;
+        setPosition(24, 34);
         speed = 4;
         direction = "down";
     }
 
-    public void getPlayerImage() {
-        up1 = setup("player_default");
-        up2 = setup("player_default");
-        down1 = setup("player_default");
-        down2 = setup("player_default");
-        left1 = setup("player_default");
-        left2 = setup("player_default");
-        right1 = setup("player_default");
-        right2 = setup("player_default");
+    public void loadSprites() {
+        up1 = Sprite("player/walking/up_1");
+        up2 = Sprite("player/walking/up_2");
+        down1 = Sprite("player/walking/down_1");
+        down2 = Sprite("player/walking/down_2");
+        left1 = Sprite("player/walking/left_1");
+        left2 = Sprite("player/walking/left_2");
+        right1 = Sprite("player/walking/right_1");
+        right2 = Sprite("player/walking/right_2");
     }
 
-    public BufferedImage setup(String imageName) {
-        Utility util = new Utility();
-        BufferedImage image = null;
-
-        try {
-            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/player/" + imageName + ".png")));
-            image = util.scaledImage(image, gp.tileSize, gp.tileSize);
-        }catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return image;
-    }
-
-    public void update() {
+    public void process() {
         if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
             // Player Movement WASD
             if (keyH.upPressed) {
@@ -95,6 +77,10 @@ public class Player extends Entity{
             // Check object collision
             int objIndex = gp.collisionDetector.checkObject(this, true);
             pickUpObject(objIndex);
+
+            // Check NPC collision
+            int npcIndex = gp.collisionDetector.checkPlayerOnNpc(this, gp.npc);
+            interactNpc(npcIndex);
 
             // If collision is false, player can move
             if (!collisionOn) {
@@ -128,31 +114,14 @@ public class Player extends Entity{
     }
 
     public void pickUpObject(int i) {
-        if (i != -1) {
-            String objectName = gp.obj[i].name.toLowerCase();
+        if (i != 999) {
+            // TODO: Set up game objects
+        }
+    }
 
-            switch(objectName) {
-                case "key":
-                    gp.playSFX(1);
-                    keyCount++;
-                    gp.obj[i] = null;
-                    gp.ui.displayMessage("You got a key!");
-                    break;
-                case "door":
-                    if (keyCount >= 1) {
-                        gp.playSFX(2);
-                        keyCount--;
-                        gp.obj[i] = null;
-                        gp.ui.displayMessage("You open the door!");
-                    } else {
-                        gp.ui.displayMessage("You don't have a key!");
-                    }
-                    break;
-                case "chest":
-                    gp.ui.gameFinished = true;
-                    gp.stopMusic();
-                    break;
-            }
+    public void interactNpc(int i) {
+        if (i != -1) {
+            System.out.println("You are hitting an npc!");
         }
     }
 

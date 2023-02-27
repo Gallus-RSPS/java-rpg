@@ -1,8 +1,10 @@
 package main;
 
+import entity.Entity;
 import entity.Player;
 import object.SuperObject;
 import tile.TileManager;
+import util.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -27,8 +29,8 @@ public class GamePanel extends JPanel implements Runnable{
     double defaultSecond = 1000000000; // amount of nanoseconds in one second
 
     // System
-    TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler();
+    public TileManager tileM = new TileManager(this);
+    KeyHandler keyH = new KeyHandler(this);
     Sound music = new Sound();
     Sound sfx = new Sound();
     public CollisionDetection collisionDetector = new CollisionDetection(this);
@@ -38,8 +40,13 @@ public class GamePanel extends JPanel implements Runnable{
 
     // Entity and Object
     public Player player = new Player(this, keyH);
+    public Entity npc[] = new Entity[10];
     public SuperObject[] obj = new SuperObject[10];
 
+    // Game State
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
 
     public GamePanel() {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -55,8 +62,14 @@ public class GamePanel extends JPanel implements Runnable{
 
     public void setupGame() {
         aSetter.setObject();
+        aSetter.spawnNPC();
 
         playMusic(0);
+
+        // DEV MUSIC NOT PLAYING
+        stopMusic();
+
+        gameState = playState;
     }
 
     public void startGameThread() {
@@ -81,21 +94,33 @@ public class GamePanel extends JPanel implements Runnable{
             lastTime = currentTime;
 
             if (delta >= 1) {
-                update();
+                cycle();
                 repaint();
                 delta--;
                 drawCount++;
             }
             if (timer >= defaultSecond) {
-                System.out.println("FPS:" + drawCount);
+                //System.out.println("FPS:" + drawCount);
                 drawCount = 0;
                 timer = 0;
             }
         }
     }
 
-    public void update() {
-        player.update();
+    public void cycle() {
+
+        if (gameState == playState) {
+            player.process();
+            for (int i = 0; i < npc.length; i++) {
+                if (npc[i] != null) {
+                    npc[i].process();
+                }
+            }
+        }
+
+        if (gameState == pauseState) {
+            // TODO: set up pause state
+        }
     }
 
     public void paintComponent(Graphics g) {
@@ -117,6 +142,13 @@ public class GamePanel extends JPanel implements Runnable{
         for (SuperObject superObject : obj) {
             if (superObject != null) {
                 superObject.draw(g2, this);
+            }
+        }
+
+        // Draw NPCs
+        for (int i = 0; i < npc.length; i++) {
+            if (npc[i] != null) {
+                npc[i].draw(g2);
             }
         }
 

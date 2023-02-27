@@ -1,7 +1,7 @@
 package object;
 
 import main.GamePanel;
-import main.Utility;
+import util.Utility;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
