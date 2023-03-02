@@ -8,7 +8,7 @@ import java.awt.event.KeyListener;
 public class KeyHandler implements KeyListener {
 
     GamePanel gp;
-    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, enterPressed;
 
     // Debut
     public boolean checkDrawTime = false;
@@ -25,29 +25,46 @@ public class KeyHandler implements KeyListener {
 
         int code = e.getKeyCode();
 
-        switch(code) {
-            case KeyEvent.VK_W:
-                upPressed = true;
-                break;
-            case KeyEvent.VK_S:
-                downPressed = true;
-                break;
-            case KeyEvent.VK_A:
-                leftPressed = true;
-                break;
-            case KeyEvent.VK_D:
-                rightPressed = true;
-                break;
-            case KeyEvent.VK_P:
-                if (gp.gameState == gp.playState) { // if game is not paused, pause the game
+        if (gp.gameState == gp.playState) {
+            switch (code) {
+                case KeyEvent.VK_W:
+                    upPressed = true;
+                    break;
+                case KeyEvent.VK_S:
+                    downPressed = true;
+                    break;
+                case KeyEvent.VK_A:
+                    leftPressed = true;
+                    break;
+                case KeyEvent.VK_D:
+                    rightPressed = true;
+                    break;
+                case KeyEvent.VK_P:
                     gp.gameState = gp.pauseState;
-                } else if (gp.gameState == gp.pauseState) { // if game is paused, unpause the game
+                    break;
+                case KeyEvent.VK_T:
+                    checkDrawTime = !checkDrawTime;
+                    break;
+                case KeyEvent.VK_ENTER:
+                    enterPressed = true;
+                    break;
+            }
+        }
+
+        else if (gp.gameState == gp.pauseState) {
+            switch (code) {
+                case KeyEvent.VK_P:
                     gp.gameState = gp.playState;
-                }
-                break;
-            case KeyEvent.VK_T:
-                checkDrawTime = !checkDrawTime;
-                break;
+                    break;
+            }
+        }
+
+        else if (gp.gameState == gp.dialogueState) {
+            switch (code) {
+                case KeyEvent.VK_ENTER:
+                    gp.gameState = gp.playState;
+                    break;
+            }
         }
 
     }
