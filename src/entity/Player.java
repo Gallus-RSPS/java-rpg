@@ -86,6 +86,12 @@ public class Player extends Entity{
             int npcIndex = gp.collisionDetector.checkPlayerOnNpc(this, gp.npc);
             interactNpc(npcIndex);
 
+            // Check event
+            gp.eHandler.checkEvent();
+
+            // Set enter key to false if nothing is happening
+            gp.keyH.enterPressed = false;
+
             // If collision is false, player can move
             if (!collisionOn) {
                 switch(direction) {
@@ -130,7 +136,6 @@ public class Player extends Entity{
                 gp.npc[i].speak();
             }
         }
-        keyH.enterPressed = false;
     }
 
     public void draw(Graphics2D g2) {

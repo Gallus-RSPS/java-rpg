@@ -167,4 +167,11 @@ public class Entity {
         worldY = gp.tileSize * y;
     }
 
+    public String getPosition() {
+        int x = worldX / gp.tileSize;
+        int y = worldY / gp.tileSize;
+
+        return "Current Position is X: " + x + " Y: " + y;
+    }
+
 }

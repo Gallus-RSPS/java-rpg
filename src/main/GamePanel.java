@@ -2,6 +2,7 @@ package main;
 
 import entity.Entity;
 import entity.Player;
+import events.EventHandler;
 import object.SuperObject;
 import tile.TileManager;
 import util.*;
@@ -34,11 +35,12 @@ public class GamePanel extends JPanel implements Runnable {
 
     // System
     public TileManager tileM = new TileManager(this);
-    KeyHandler keyH = new KeyHandler(this);
-    Sound music = new Sound();
-    Sound sfx = new Sound();
+    public KeyHandler keyH = new KeyHandler(this);
+    public Sound music = new Sound();
+    public Sound sfx = new Sound();
     public CollisionDetection collisionDetector = new CollisionDetection(this);
     public AssetSetter aSetter = new AssetSetter(this);
+    public EventHandler eHandler = new EventHandler(this);
     public UI ui = new UI(this);
     Thread gameThread;
 
@@ -176,8 +178,9 @@ public class GamePanel extends JPanel implements Runnable {
             long drawEnd = System.nanoTime();
             long passed = drawEnd - drawStart;
             g2.setColor(Color.WHITE);
-            g2.drawString("Draw Time: " + passed, 10, 400);
-            System.out.println("Draw Time: " + passed);
+            g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 20F));
+            g2.drawString(player.getPosition(), 10, 400);
+            //System.out.println(player.getPosition());
         }
 
         g2.dispose();
