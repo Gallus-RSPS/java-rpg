@@ -9,10 +9,11 @@ import util.*;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
 public class GamePanel extends JPanel implements Runnable {
+
+    // Debug Settings
+    public boolean debug = true;
 
     // SCREEN SETTINGS
     final int originalTileSize = 16; // 16x16 tile
@@ -174,13 +175,10 @@ public class GamePanel extends JPanel implements Runnable {
         }
 
         // Debug
-        if (keyH.checkDrawTime) {
-            long drawEnd = System.nanoTime();
-            long passed = drawEnd - drawStart;
+        if (gameState != titleState && debug) {
             g2.setColor(Color.WHITE);
             g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 20F));
-            g2.drawString(player.getPosition(), 10, 400);
-            //System.out.println(player.getPosition());
+            g2.drawString(player.getPosition(), 10, screenHeight - 10);
         }
 
         g2.dispose();

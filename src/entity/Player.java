@@ -13,6 +13,9 @@ public class Player extends Entity{
     public final int screenX;
     public final int screenY;
 
+    boolean moving = false;
+    int pixelCounter = 0;
+
     // Old for key collector, delete fully once completely phased out
     //public int keyCount = 0;
 
@@ -26,12 +29,12 @@ public class Player extends Entity{
         screenY = gp.screenHeight / 2 - (gp.tileSize / 2);
 
         collisionArea = new Rectangle();
-        collisionArea.x = 12;
-        collisionArea.y = 21;
+        collisionArea.x = 1;
+        collisionArea.y = 1;
         collisionAreaDefaultX = collisionArea.x;
         collisionAreaDefaultY = collisionArea.y;
-        collisionArea.width = 24;
-        collisionArea.height = 27;
+        collisionArea.width = 46;
+        collisionArea.height = 46;
 
         setDefaultValues();
         loadSprites();
@@ -39,7 +42,7 @@ public class Player extends Entity{
 
     public void setDefaultValues() {
         setPosition(24, 30);
-        speed = 3;
+        speed = 4;
         direction = "down";
 
         // Player Status
@@ -59,39 +62,48 @@ public class Player extends Entity{
     }
 
     public void process() {
-        if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
-            // Player Movement WASD
-            if (keyH.upPressed) {
-                direction = "up";
+
+        if (!moving) {
+            if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
+                // Player Movement WASD
+                if (keyH.upPressed) {
+                    direction = "up";
+                    moving = true;
+                }
+                if (keyH.downPressed) {
+                    direction = "down";
+                    moving = true;
+                }
+                if (keyH.leftPressed) {
+                    direction = "left";
+                    moving = true;
+                }
+                if (keyH.rightPressed) {
+                    direction = "right";
+                    moving = true;
+                }
+
+                // Check tile collision
+                collisionOn = false;
+                gp.collisionDetector.checkTile(this);
+
+                // Check object collision
+                int objIndex = gp.collisionDetector.checkObject(this, true);
+                pickUpObject(objIndex);
+
+                // Check NPC collision
+                int npcIndex = gp.collisionDetector.checkPlayerOnNpc(this, gp.npc);
+                interactNpc(npcIndex);
+
+                // Check event
+                gp.eHandler.checkEvent();
+
+                // Set enter key to false if nothing is happening
+                gp.keyH.enterPressed = false;
             }
-            if (keyH.downPressed) {
-                direction = "down";
-            }
-            if (keyH.leftPressed) {
-                direction = "left";
-            }
-            if (keyH.rightPressed) {
-                direction = "right";
-            }
+        }
 
-            // Check tile collision
-            collisionOn = false;
-            gp.collisionDetector.checkTile(this);
-
-            // Check object collision
-            int objIndex = gp.collisionDetector.checkObject(this, true);
-            pickUpObject(objIndex);
-
-            // Check NPC collision
-            int npcIndex = gp.collisionDetector.checkPlayerOnNpc(this, gp.npc);
-            interactNpc(npcIndex);
-
-            // Check event
-            gp.eHandler.checkEvent();
-
-            // Set enter key to false if nothing is happening
-            gp.keyH.enterPressed = false;
-
+        if (moving) {
             // If collision is false, player can move
             if (!collisionOn) {
                 switch(direction) {
@@ -119,8 +131,14 @@ public class Player extends Entity{
                 }
                 spriteCounter = 0;
             }
-        }
 
+            pixelCounter += speed;
+
+            if (pixelCounter == 48) {
+                moving = false;
+                pixelCounter = 0;
+            }
+        }
     }
 
     public void pickUpObject(int i) {
@@ -178,5 +196,9 @@ public class Player extends Entity{
         }
 
         g2.drawImage(image, screenX, screenY, null);
+        if (gp.debug) {
+            g2.setColor(Color.red);
+            g2.drawRect(screenX + collisionArea.x, screenY + collisionArea.y, collisionArea.width, collisionArea.height);
+        }
     }
 }

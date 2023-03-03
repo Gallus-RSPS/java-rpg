@@ -49,13 +49,6 @@ public class KeyHandler implements KeyListener {
 
         if (gp.gameState == gp.playState) {
             switch (code) {
-                case KeyEvent.VK_B:
-                    if(gp.player.speed == 3) {
-                        gp.player.speed = 4;
-                    } else {
-                        gp.player.speed = 3;
-                    }
-                    break;
                 case KeyEvent.VK_W:
                     upPressed = true;
                     break;

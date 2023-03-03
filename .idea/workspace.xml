@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a4ec573-11ef-4196-9cd5-b0dbc43cd9e2" name="Changes" comment="added basic event system" />
+    <list default="true" id="8a4ec573-11ef-4196-9cd5-b0dbc43cd9e2" name="Changes" comment="Changed movement to tile/grid based">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/KeyHandler.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -93,6 +98,7 @@
       <workItem from="1677781272962" duration="16498000" />
       <workItem from="1677819392452" duration="5000" />
       <workItem from="1677852506245" duration="7024000" />
+      <workItem from="1677877529203" duration="3763000" />
     </task>
     <task id="LOCAL-00001" summary="beginning of game state handling&#10;npc spawning and random movement&#10;collision between player/object player/npc npc/player npc/object&#10;removed key collecting code in preparation for turning game base into an rpg game">
       <created>1677516474778</created>
@@ -122,7 +128,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677861118138</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added basic event system">
+      <created>1677877546068</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1677877546068</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +158,7 @@
     <MESSAGE value="adding unversioned files" />
     <MESSAGE value="added creating and drawing dialogue interface.&#10;&#10;added sample dialogue for Old Man NPC for testing purposes and to show how the system works." />
     <MESSAGE value="added basic event system" />
-    <option name="LAST_COMMIT_MESSAGE" value="added basic event system" />
+    <MESSAGE value="Changed movement to tile/grid based" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed movement to tile/grid based" />
   </component>
 </project>
