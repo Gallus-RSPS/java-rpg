@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a4ec573-11ef-4196-9cd5-b0dbc43cd9e2" name="Changes" comment="added creating and drawing dialogue interface.&#10;&#10;added sample dialogue for Old Man NPC for testing purposes and to show how the system works.">
-      <change afterPath="$PROJECT_DIR$/src/events/EventHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/events/EventRect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/entity/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/entity/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/entity/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/entity/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/main/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/main/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/maps/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/maps/sample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/maps/sample.txt" beforeDir="false" afterPath="$PROJECT_DIR$/res/maps/sample.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-    </list>
+    <list default="true" id="8a4ec573-11ef-4196-9cd5-b0dbc43cd9e2" name="Changes" comment="added basic event system" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,7 +92,7 @@
       <workItem from="1677776231632" duration="4560000" />
       <workItem from="1677781272962" duration="16498000" />
       <workItem from="1677819392452" duration="5000" />
-      <workItem from="1677852506245" duration="6652000" />
+      <workItem from="1677852506245" duration="7024000" />
     </task>
     <task id="LOCAL-00001" summary="beginning of game state handling&#10;npc spawning and random movement&#10;collision between player/object player/npc npc/player npc/object&#10;removed key collecting code in preparation for turning game base into an rpg game">
       <created>1677516474778</created>
@@ -127,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677780019250</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added basic event system">
+      <created>1677861118138</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1677861118138</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -149,6 +144,7 @@
     <MESSAGE value="beginning of game state handling&#10;npc spawning and random movement&#10;collision between player/object player/npc npc/player npc/object&#10;removed key collecting code in preparation for turning game base into an rpg game" />
     <MESSAGE value="adding unversioned files" />
     <MESSAGE value="added creating and drawing dialogue interface.&#10;&#10;added sample dialogue for Old Man NPC for testing purposes and to show how the system works." />
-    <option name="LAST_COMMIT_MESSAGE" value="added creating and drawing dialogue interface.&#10;&#10;added sample dialogue for Old Man NPC for testing purposes and to show how the system works." />
+    <MESSAGE value="added basic event system" />
+    <option name="LAST_COMMIT_MESSAGE" value="added basic event system" />
   </component>
 </project>
