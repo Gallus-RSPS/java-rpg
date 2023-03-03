@@ -65,16 +65,17 @@ public class NPC_Old_Man extends Entity {
 
     }
 
+    /**
+     * This speaks method is here for character specific things
+     * such as quests or if your player has a special item.
+     * <p>
+     * It can also be used for later features, like having some sort
+     * of task system in place.
+     * <p>
+     * Dialogue will still function properly without having this here.
+     */
     public void speak() {
-        /**
-         * This speaks method is here for character specific things
-         * such as quests or if your player has a special item.
-         *
-         * It can also be used for later features, like having some sort
-         * of task system in place.
-         *
-         * Dialogue will still function properly without having this here.
-         */
+
         super.speak();
     }
 

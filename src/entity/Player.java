@@ -38,9 +38,13 @@ public class Player extends Entity{
     }
 
     public void setDefaultValues() {
-        setPosition(24, 34);
-        speed = 4;
+        setPosition(24, 30);
+        speed = 3;
         direction = "down";
+
+        // Player Status
+        maxLife = 6; // Half of 1 heart = 1 life
+        life = maxLife;
     }
 
     public void loadSprites() {

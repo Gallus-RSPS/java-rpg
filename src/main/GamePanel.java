@@ -8,8 +8,10 @@ import util.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class GamePanel extends JPanel implements Runnable{
+public class GamePanel extends JPanel implements Runnable {
 
     // SCREEN SETTINGS
     final int originalTileSize = 16; // 16x16 tile
@@ -21,8 +23,10 @@ public class GamePanel extends JPanel implements Runnable{
     public final int screenHeight = tileSize * maxScreenRow; // 576 pixels
 
     // World Settings
-    public final int maxWorldCol = 50;
-    public final int maxWorldRow = 50;
+    public int maxMap = 10;
+    public int maxWorldCol;
+    public int maxWorldRow;
+    public int currentMap = 0;
 
     // FPS Settings
     int FPS = 60;
@@ -45,6 +49,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     // Game State
     public int gameState;
+    public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogueState = 3;
@@ -70,7 +75,7 @@ public class GamePanel extends JPanel implements Runnable{
         // DEV MUSIC NOT PLAYING
         stopMusic();
 
-        gameState = playState;
+        gameState = titleState;
     }
 
     public void startGameThread() {
@@ -135,29 +140,36 @@ public class GamePanel extends JPanel implements Runnable{
             drawStart = System.nanoTime();
         }
 
-
-        // Draw tiles BEFORE player, so tiles render UNDER the player
-        tileM.draw(g2);
-
-        // Objects
-        for (SuperObject superObject : obj) {
-            if (superObject != null) {
-                superObject.draw(g2, this);
-            }
+        // Title Screen
+        if (gameState == titleState) {
+            ui.draw(g2);
         }
+        // Others
+        else {
 
-        // Draw NPCs
-        for (int i = 0; i < npc.length; i++) {
-            if (npc[i] != null) {
-                npc[i].draw(g2);
+            // Draw tiles BEFORE player, so tiles render UNDER the player
+            tileM.draw(g2);
+
+            // Objects
+            for (SuperObject superObject : obj) {
+                if (superObject != null) {
+                    superObject.draw(g2, this);
+                }
             }
+
+            // Draw NPCs
+            for (int i = 0; i < npc.length; i++) {
+                if (npc[i] != null) {
+                    npc[i].draw(g2);
+                }
+            }
+
+            // Draw player AFTER tiles, so player renders ABOVE the tiles
+            player.draw(g2);
+
+            // UI
+            ui.draw(g2);
         }
-
-        // Draw player AFTER tiles, so player renders ABOVE the tiles
-        player.draw(g2);
-
-        // UI
-        ui.draw(g2);
 
         // Debug
         if (keyH.checkDrawTime) {
