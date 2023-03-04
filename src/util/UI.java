@@ -1,8 +1,9 @@
 package util;
 
+import main.GameState;
+import model.entity.Entity;
 import main.GamePanel;
-import object.OBJ_Heart;
-import object.SuperObject;
+import model.object.OBJ_Heart;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -41,7 +42,7 @@ public class UI {
         }
 
         // Create HUD Object
-        SuperObject heart = new OBJ_Heart(gp);
+        Entity heart = new OBJ_Heart(gp);
         heart_full = heart.image;
         heart_half = heart.image2;
         heart_blank = heart.image3;
@@ -66,26 +67,26 @@ public class UI {
         handleGameState(gp.gameState);
     }
 
-    public void handleGameState(int state) {
+    public void handleGameState(GameState state) {
         // Title State
-        if (state == gp.titleState) {
+        if (state == GameState.TITLE) {
             drawTitleScreen();
         }
 
         // Play State
-        if (state == gp.playState) {
+        if (state == GameState.PLAY) {
             // TODO: set up play state logic
             drawPlayerLife();
         }
 
         // Pause State
-        if (state == gp.pauseState) {
+        if (state == GameState.PAUSE) {
             drawPlayerLife();
             drawPauseScreen();
         }
 
         // Dialogue State
-        if (state == gp.dialogueState) {
+        if (state == GameState.DIALOGUE) {
             drawPlayerLife();
             drawDialogueScreen();
         }

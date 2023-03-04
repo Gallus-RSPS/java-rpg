@@ -1,10 +1,9 @@
 package util;
 
-import entity.Npcs.NPC_Old_Man;
+import model.Position;
+import model.entity.Monsters.MON_Green_Slime;
+import model.entity.Npcs.NPC_Old_Man;
 import main.GamePanel;
-import object.OBJ_Chest;
-import object.OBJ_Door;
-import object.OBJ_Key;
 
 public class AssetSetter {
 
@@ -14,14 +13,16 @@ public class AssetSetter {
         this.gp = gp;
     }
 
-    public void setObject() {
+    public void spawnObjects() {}
 
+    public void spawnNpcs() {
+        gp.npc[0] = new NPC_Old_Man(gp);
+        gp.npc[0].setPosition(new Position(18, 30));
     }
 
-    public void spawnNPC() {
-
-        gp.npc[0] = new NPC_Old_Man(gp);
-        gp.npc[0].setPosition(18, 30);
+    public void spawnMonsters() {
+        gp.monster[0] = new MON_Green_Slime(gp);
+        gp.monster[0].setPosition(new Position(28, 43));
     }
 
 }
