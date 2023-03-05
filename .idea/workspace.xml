@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a4ec573-11ef-4196-9cd5-b0dbc43cd9e2" name="Changes" comment="added rendering order for npcs, objects, players&#10;changed objects to extend entity rather than superobject&#10;added Position class to use for player/npc/object position so there is more flexability for it in the future for storing positions for things like teleport spells and map changes&#10;started working on adding in monsters, still need to finish">
+    <list default="true" id="8a4ec573-11ef-4196-9cd5-b0dbc43cd9e2" name="Changes" comment="initial bitbucket commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/main/GamePanel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/main/GamePanel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/main/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/main/GamePanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/model/entity/Monsters/MON_Green_Slime.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/model/entity/Monsters/MON_Green_Slime.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/entity/Monsters/MON_Green_Slime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Monsters/MON_Green_Slime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/util/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/AssetSetter.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +25,9 @@
         <option value="Enum" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -99,7 +107,7 @@
       <workItem from="1677852506245" duration="7024000" />
       <workItem from="1677877529203" duration="3812000" />
       <workItem from="1677897026353" duration="12505000" />
-      <workItem from="1677977945818" duration="1083000" />
+      <workItem from="1677977945818" duration="2865000" />
     </task>
     <task id="LOCAL-00001" summary="beginning of game state handling&#10;npc spawning and random movement&#10;collision between player/object player/npc npc/player npc/object&#10;removed key collecting code in preparation for turning game base into an rpg game">
       <created>1677516474778</created>
@@ -157,7 +165,21 @@
       <option name="project" value="LOCAL" />
       <updated>1677909558027</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="initial bitbucket commit">
+      <created>1677979154827</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1677979154827</updated>
+    </task>
+    <task id="LOCAL-00010" summary="initial bitbucket commit">
+      <created>1677979247411</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1677979247411</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -183,6 +205,7 @@
     <MESSAGE value="Changed movement to tile/grid based" />
     <MESSAGE value="Changed movement to tile/grid based for easier moving around, and clipping" />
     <MESSAGE value="added rendering order for npcs, objects, players&#10;changed objects to extend entity rather than superobject&#10;added Position class to use for player/npc/object position so there is more flexability for it in the future for storing positions for things like teleport spells and map changes&#10;started working on adding in monsters, still need to finish" />
-    <option name="LAST_COMMIT_MESSAGE" value="added rendering order for npcs, objects, players&#10;changed objects to extend entity rather than superobject&#10;added Position class to use for player/npc/object position so there is more flexability for it in the future for storing positions for things like teleport spells and map changes&#10;started working on adding in monsters, still need to finish" />
+    <MESSAGE value="initial bitbucket commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="initial bitbucket commit" />
   </component>
 </project>

@@ -31,7 +31,7 @@ public class MON_Green_Slime extends Entity {
     public void behaviour() {
         actionLockCounter++;
 
-        if (actionLockCounter == 120) {
+        if (actionLockCounter == 20) {
             moving = true;
             Random random = new Random();
             int i = random.nextInt(100) + 1; // pick a number from 1 to 100

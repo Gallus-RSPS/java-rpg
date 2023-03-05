@@ -22,7 +22,7 @@ public class AssetSetter {
 
     public void spawnMonsters() {
         gp.monster[0] = new MON_Green_Slime(gp);
-        gp.monster[0].setPosition(new Position(28, 43));
+        gp.monster[0].setPosition(new Position(33, 28));
     }
 
 }

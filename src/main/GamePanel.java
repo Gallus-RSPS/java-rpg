@@ -70,6 +70,7 @@ public class GamePanel extends JPanel implements Runnable {
     public void setupGame() {
         aSetter.spawnObjects();
         aSetter.spawnNpcs();
+        aSetter.spawnMonsters();
 
         if (!debug) {
             playMusic(0);
@@ -106,11 +107,6 @@ public class GamePanel extends JPanel implements Runnable {
             if (timer >= defaultSecond) {
                 timer = 0;
             }
-            try {
-                Thread.sleep(1);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
         }
     }
 
@@ -119,9 +115,25 @@ public class GamePanel extends JPanel implements Runnable {
         if (gameState == GameState.PLAY) {
             player.process();
 
-            Arrays.stream(npc)
-                    .filter(Objects::nonNull)
-                    .forEach(Entity::process);
+            for (Entity npc : npc) {
+                if (npc != null) {
+                    npc.process();
+                }
+            }
+
+            for (Entity monster : monster) {
+                if (monster != null) {
+                    monster.process();
+                }
+            }
+
+//            Arrays.stream(npc)
+//                    .filter(Objects::nonNull)
+//                    .forEach(Entity::process);
+//
+//            Arrays.stream(monster)
+//                    .filter(Objects::nonNull)
+//                    .forEach(Entity::process);
 
         }
 
@@ -153,6 +165,11 @@ public class GamePanel extends JPanel implements Runnable {
                 }
             }
             // Add all Monsters
+            for (Entity monster : monster) {
+                if (monster != null) {
+                    entityList.add(monster);
+                }
+            }
             // Add all Objects
             for (Entity obj : obj) {
                 if (obj != null) {
