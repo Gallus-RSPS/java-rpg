@@ -19,13 +19,13 @@ public class MON_Green_Slime extends Entity {
 
     public void loadSprites() {
         up1 = Sprite("monster/slime/green/down_1");
-        up2 = Sprite("monster/sline/green/down_2");
+        up2 = Sprite("monster/slime/green/down_2");
         down1 = Sprite("monster/slime/green/down_1");
-        down2 = Sprite("monster/sline/green/down_2");
+        down2 = Sprite("monster/slime/green/down_2");
         left1 = Sprite("monster/slime/green/down_1");
-        left2 = Sprite("monster/sline/green/down_2");
+        left2 = Sprite("monster/slime/green/down_2");
         right1 = Sprite("monster/slime/green/down_1");
-        right2 = Sprite("monster/sline/green/down_2");
+        right2 = Sprite("monster/slime/green/down_2");
     }
 
     public void behaviour() {

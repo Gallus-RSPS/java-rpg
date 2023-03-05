@@ -4,70 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8a4ec573-11ef-4196-9cd5-b0dbc43cd9e2" name="Changes" comment="Changed movement to tile/grid based for easier moving around, and clipping">
-      <change afterPath="$PROJECT_DIR$/res/monster/bat/down_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/bat/down_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/attack_down_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/attack_down_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/attack_left_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/attack_left_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/attack_right_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/attack_right_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/attack_up_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/attack_up_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/down_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/down_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/left_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/left_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/right_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/right_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/up_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/orc/up_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/slime/green/down_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/slime/green/down_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/slime/red/down_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/monster/slime/red/down_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/GameState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/Position.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/entity/Monsters/MON_Green_Slime.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/entity/Npc.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/object/OBJ_Chest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/object/OBJ_Door.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/object/OBJ_Heart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/model/object/OBJ_Key.java" afterDir="false" />
+    <list default="true" id="8a4ec573-11ef-4196-9cd5-b0dbc43cd9e2" name="Changes" comment="added rendering order for npcs, objects, players&#10;changed objects to extend entity rather than superobject&#10;added Position class to use for player/npc/object position so there is more flexability for it in the future for storing positions for things like teleport spells and map changes&#10;started working on adding in monsters, still need to finish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/entity/Entity.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/entity/Npcs/NPC_Old_Man.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/entity/Player.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/events/EventHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/events/EventRect.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/main/GamePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/main/GamePanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/object/OBJ_Chest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/object/OBJ_Door.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/object/OBJ_Heart.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/object/OBJ_Key.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/object/SuperObject.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/tile/TileManager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/tile/TileManager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/util/AssetSetter.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/util/AssetSetter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/util/CollisionDetection.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/util/CollisionDetection.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/util/KeyHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/util/KeyHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/JavaRPG/util/UI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/JavaRPG/util/UI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Npcs/NPC_Old_Man.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Npcs/NPC_Old_Man.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/entity/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/events/EventHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/events/EventHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/events/EventRect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/events/EventRect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Chest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Door.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Heart.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/OBJ_Key.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/object/SuperObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/tile/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tile/TileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/CollisionDetection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/CollisionDetection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/util/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/entity/Monsters/MON_Green_Slime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/entity/Monsters/MON_Green_Slime.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -159,7 +98,8 @@
       <workItem from="1677819392452" duration="5000" />
       <workItem from="1677852506245" duration="7024000" />
       <workItem from="1677877529203" duration="3812000" />
-      <workItem from="1677897026353" duration="12346000" />
+      <workItem from="1677897026353" duration="12505000" />
+      <workItem from="1677977945818" duration="1083000" />
     </task>
     <task id="LOCAL-00001" summary="beginning of game state handling&#10;npc spawning and random movement&#10;collision between player/object player/npc npc/player npc/object&#10;removed key collecting code in preparation for turning game base into an rpg game">
       <created>1677516474778</created>
@@ -210,7 +150,14 @@
       <option name="project" value="LOCAL" />
       <updated>1677884752821</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added rendering order for npcs, objects, players&#10;changed objects to extend entity rather than superobject&#10;added Position class to use for player/npc/object position so there is more flexability for it in the future for storing positions for things like teleport spells and map changes&#10;started working on adding in monsters, still need to finish">
+      <created>1677909558027</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1677909558027</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -235,6 +182,7 @@
     <MESSAGE value="added basic event system" />
     <MESSAGE value="Changed movement to tile/grid based" />
     <MESSAGE value="Changed movement to tile/grid based for easier moving around, and clipping" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed movement to tile/grid based for easier moving around, and clipping" />
+    <MESSAGE value="added rendering order for npcs, objects, players&#10;changed objects to extend entity rather than superobject&#10;added Position class to use for player/npc/object position so there is more flexability for it in the future for storing positions for things like teleport spells and map changes&#10;started working on adding in monsters, still need to finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="added rendering order for npcs, objects, players&#10;changed objects to extend entity rather than superobject&#10;added Position class to use for player/npc/object position so there is more flexability for it in the future for storing positions for things like teleport spells and map changes&#10;started working on adding in monsters, still need to finish" />
   </component>
 </project>
